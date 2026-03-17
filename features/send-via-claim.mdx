@@ -1,0 +1,62 @@
+---
+title: "Send via Claim"
+description: "Send USDC via a claimable link — no need to know the recipient's address."
+---
+
+Send via Claim lets you send USDC by generating a link and a passphrase. Share the link with anyone — they claim the funds by entering the passphrase. No wallet address exchange needed.
+
+## How it works
+
+1. Enter the amount on the home screen
+2. Tap **Send**
+3. Instead of entering a recipient, tap **Generate a claim link**
+4. Optionally add a message (up to 50 characters)
+5. Review the fee breakdown
+6. Tap **Proceed** and approve the transaction
+7. Copy the **claim link** and **passphrase**
+
+<Warning>
+  The passphrase is required to claim the funds. It is generated with the claim and never stored anywhere.
+</Warning>
+
+## Sharing the link
+
+After creating the claim, you'll get:
+- A **claim link** (e.g., `swish.cash/c/...`)
+- A **passphrase** (a secret string needed to claim)
+
+When you tap **Copy Claim Link**, both the link and passphrase are copied together. You can then share them however you'd like — DM, text, email, etc.
+
+## How the recipient claims
+
+1. Open the claim link
+2. Sign into Swish (if not already)
+3. Enter the **passphrase**
+4. Tap **Proceed**
+5. Funds are transferred to their wallet
+
+## Reclaiming funds
+
+Changed your mind? If the funds haven't been claimed yet, you can reclaim them:
+
+1. Go to the claim link (or find it in your **Activity** tab)
+2. Tap **Reclaim**
+3. The funds are returned to your wallet
+
+Once claimed by someone else, reclaim is no longer available.
+
+## Fee breakdown
+
+Fees are charged by the [Privacy Cash](https://privacycash.org) protocol, not by Swish:
+
+> **0.006 SOL (in USDC) + 0.35% of the amount**
+
+The **"They Receive"** line shows what the recipient gets after fees.
+
+See [Fees](/fees) for more details.
+
+## When to use Send via Claim
+
+- You don't know the recipient's wallet address
+- You want to send money without asking for an address
+- You want an extra layer of security with the passphrase

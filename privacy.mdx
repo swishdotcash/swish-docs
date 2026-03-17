@@ -1,0 +1,55 @@
+---
+title: "Privacy"
+description: "How Swish protects your financial privacy on Solana."
+---
+
+Swish is built for private payments. Here's what that means and how it works.
+
+## What's private
+
+When you use Swish to **Send**, **Request**, or **Send via Claim**:
+
+- **Your wallet address** is never exposed on-chain
+- **The recipient's address** is not linked to your transaction
+- **The connection between sender and receiver** cannot be traced on the blockchain
+
+An outside observer looking at the blockchain cannot determine who sent money to whom through Swish.
+
+## How it works
+
+Swish routes all private transactions through [Privacy Cash](https://privacycash.org) on Solana. Instead of a direct transfer from your wallet to the recipient's wallet (which would be fully visible on-chain), Swish:
+
+1. Takes your payment through Privacy Cash
+2. The protocol breaks the on-chain link between sender and receiver
+3. The recipient receives USDC in their wallet from the protocol — not from your address
+
+This means your wallet address is never associated with the payment on the blockchain.
+
+## What's not private
+
+Not everything in Swish is private. Be aware of these exceptions:
+
+| Action | Privacy level |
+|--------|--------------|
+| **Send** | Private — sender address hidden |
+| **Request** | Private — requester address hidden |
+| **Send via Claim** | Private — sender address hidden |
+| **Withdraw** | **Not private** — standard on-chain USDC transfer |
+| **Deposit** | **Not private** — standard on-chain transfer to your address |
+
+<Note>
+  Withdrawals and deposits are standard Solana transactions. Both addresses are visible on-chain. Use Withdraw only for moving funds to your own wallets.
+</Note>
+
+## X (Twitter) handles
+
+If you sign in with X, your handle is used within Swish to let others send you money by username. The users don't need to ask for your wallet address. When you login with X, you will find you have some money in your account and can easily withdraw.
+
+## Session signature
+
+When you sign in, Swish asks you to sign a message. This signature is used locally to derive encryption keys for your private transactions. It is never sent to the blockchain and costs nothing.
+
+## Best practices
+
+- Use **Send** or **Send via Claim** for private payments — avoid Withdraw when privacy matters
+- Your embedded wallet (if you signed in with X) can be [exported](/features/export-wallet) — keep your private key safe

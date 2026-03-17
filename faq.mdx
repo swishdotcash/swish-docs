@@ -1,0 +1,76 @@
+---
+title: "FAQ"
+description: "Frequently asked questions about Swish."
+---
+
+## General
+
+<AccordionGroup>
+  <Accordion title="What is Swish?">
+    Swish is a privacy-focused payments app on Solana. It lets you send and receive USDC without exposing your wallet address on the blockchain.
+  </Accordion>
+
+  <Accordion title="What blockchain does Swish use?">
+    Swish is built on Solana. All transactions are processed on the Solana blockchain.
+  </Accordion>
+
+  <Accordion title="What currency does Swish support?">
+    Swish uses **USDC** — a stablecoin pegged to the US dollar.
+  </Accordion>
+
+  <Accordion title="Is Swish free to use?">
+    Private transactions (Send, Request, Send via Claim) include a small fee charged by the Privacy Cash protocol — not by Swish. Withdrawals are free with gas fees sponsored by Swish. See [Fees](/fees) for details.
+  </Accordion>
+</AccordionGroup>
+
+## Account & Wallet
+
+<AccordionGroup>
+  <Accordion title="How do I create an account?">
+    Go to [swish.cash](https://swish.cash) and click **Connect Wallet**. You can sign in with a Solana wallet (Phantom, Solflare, Seeker wallet, etc.) or with your X (Twitter) account.
+  </Accordion>
+
+  <Accordion title="What happens when I sign in with X?">
+    Swish automatically creates an embedded Solana wallet for you. You don't need to install any wallet app. You can [export your wallet](/features/export-wallet) at any time.
+  </Accordion>
+
+  <Accordion title="Can I use the same account on web and mobile?">
+    Yes. If you sign in with the same X account or wallet, you'll access the same Swish account and balance on both platforms.
+  </Accordion>
+
+  <Accordion title="Why do I need to sign a message after connecting?">
+    The session signature is used to derive encryption keys for your private transactions. It's not a transaction and costs nothing. It's required once per session.
+  </Accordion>
+
+  <Accordion title="Can I export my wallet?">
+    If you signed in with X, you can export your embedded wallet's private key from the web app. Go to Profile → Wallet → Export. See [Export Wallet](/features/export-wallet).
+  </Accordion>
+</AccordionGroup>
+
+## Sending & Receiving
+
+<AccordionGroup>
+  <Accordion title="Is sending really private?">
+    Yes. When you use Send, Request, or Send via Claim, your wallet address is never exposed on the blockchain. The transaction is routed through Privacy Cash protocol that breaks the on-chain link between sender and receiver.
+  </Accordion>
+
+  <Accordion title="Can I send to someone who doesn't have Swish?">
+    You can send to any Solana wallet address, even if they don't use Swish. For people without a wallet, use **Send via Claim** to generate a link they can claim after creating an account.
+  </Accordion>
+
+  <Accordion title="What's the difference between Send and Send via Claim?">
+    **Send** transfers USDC directly to a wallet address or X handle. **Send via Claim** generates a link with a passphrase — the recipient claims the funds by entering the passphrase. Use Send via Claim when you don't know the recipient's address.
+  </Accordion>
+
+  <Accordion title="Can I cancel a request?">
+    Yes. Open requests can be cancelled from the Activity tab on your profile page.
+  </Accordion>
+
+  <Accordion title="Can I reclaim funds from a Send via Claim link?">
+    Yes, as long as the funds haven't been claimed yet. Open the claim link and tap **Reclaim** to return the funds to your wallet.
+  </Accordion>
+
+  <Accordion title="Are withdrawals private?">
+    No. Withdrawals are standard USDC transfers on Solana — both addresses are visible on-chain. However, the gas fee is sponsored by Swish, so withdrawals are free.
+  </Accordion>
+</AccordionGroup>
