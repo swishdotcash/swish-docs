@@ -1,0 +1,49 @@
+---
+title: "Privacy Protocols"
+description: "How Swish routes your private transactions across Privacy Cash, MagicBlock, and Umbra."
+---
+
+Swish doesn't operate its own privacy protocol. Instead, it aggregates across the leading privacy primitives on Solana and picks the best route for each transaction.
+
+## The protocols
+
+### Privacy Cash
+
+A ZK UTXO mixer. Funds are deposited into a pool, and recipients withdraw with a zero-knowledge proof — breaking the on-chain link between sender and receiver.
+
+- **Fee:** ~$0.71 + 0.35% of the amount
+- **Best for:** Universal fallback. Works for any recipient address.
+
+### MagicBlock
+
+A TEE-based privacy protocol (Intel TDX) that processes transactions confidentially in a secure enclave. Recipients land in their mainnet token account directly, no unlock step needed.
+
+- **Fee:** Gas only (~free)
+- **Best for:** Most sends, when the recipient hasn't enabled Umbra. Cheapest option.
+
+### Umbra
+
+A ZK shielded pool secured by Arcium MPC. Funds enter the shielded pool and are claimed by registered recipients. Both sender and recipient must be registered on Umbra.
+
+- **Fee:** 0.7% of the amount (charged on claim)
+- **Best for:** Sends between two Umbra-registered users.
+
+You can enable Umbra in your profile under the **Umbra** section — it's a one-time, ~$0.60 setup.
+
+## How Auto routing works
+
+When the picker is set to **Auto** (the default), Swish picks the route in this order:
+
+1. **Umbra** — if sender and recipient are both registered
+2. **MagicBlock** — if MagicBlock is available
+3. **Privacy Cash** — final fallback
+
+If a route fails at dispatch (e.g., MagicBlock has an outage), Swish automatically retries via the next protocol.
+
+## Picking manually
+
+The picker on every send / request / Send via Claim flow lets you override Auto and pick a specific protocol. Disabled options are dimmed — typically because the recipient isn't compatible (e.g., not registered on Umbra).
+
+## Send via Claim
+
+Send via Claim only routes through MagicBlock or Privacy Cash today. Umbra requires recipient registration, which doesn't fit the open-claim model.

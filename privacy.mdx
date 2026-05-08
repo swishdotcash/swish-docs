@@ -9,21 +9,21 @@ Swish is built for private payments. Here's what that means and how it works.
 
 When you use Swish to **Send**, **Request**, or **Send via Claim**:
 
-- **Your wallet address** is never exposed on-chain
-- **The recipient's address** is not linked to your transaction
+- **Your wallet address** is never linked to the recipient's address on-chain
 - **The connection between sender and receiver** cannot be traced on the blockchain
+- **The amount** can also be hidden depending on the protocol used
 
 An outside observer looking at the blockchain cannot determine who sent money to whom through Swish.
 
 ## How it works
 
-Swish routes all private transactions through [Privacy Cash](https://privacycash.org) on Solana. Instead of a direct transfer from your wallet to the recipient's wallet (which would be fully visible on-chain), Swish:
+Swish doesn't operate its own privacy protocol. It aggregates across three privacy primitives on Solana — **Privacy Cash**, **MagicBlock**, and **Umbra** — and picks the best route automatically. Each protocol uses a different mechanism to break the on-chain link:
 
-1. Takes your payment through Privacy Cash
-2. The protocol breaks the on-chain link between sender and receiver
-3. The recipient receives USDC in their wallet from the protocol — not from your address
+- **Privacy Cash** — ZK UTXO mixer (deposit + withdraw breaks the link)
+- **MagicBlock** — confidential transactions inside an Intel TDX TEE
+- **Umbra** — ZK shielded pool secured by Arcium MPC
 
-This means your wallet address is never associated with the payment on the blockchain.
+For full details on each protocol and how routing works, see [Privacy Protocols](/privacy-protocols).
 
 ## What's not private
 
@@ -43,7 +43,7 @@ Not everything in Swish is private. Be aware of these exceptions:
 
 ## X (Twitter) handles
 
-If you sign in with X, your handle is used within Swish to let others send you money by username. The users don't need to ask for your wallet address. When you login with X, you will find you have some money in your account and can easily withdraw.
+If you sign in with X, your handle is used within Swish to let others send you money by username. Senders don't need your wallet address.
 
 ## Session signature
 
@@ -51,5 +51,6 @@ When you sign in, Swish asks you to sign a message. This signature is used local
 
 ## Best practices
 
-- Use **Send** or **Send via Claim** for private payments — avoid Withdraw when privacy matters
+- Use **Send**, **Request**, or **Send via Claim** for private payments — avoid Withdraw when privacy matters
+- Enable **Umbra** in your profile if you want to receive funds with Umbra's stronger privacy guarantees
 - Your embedded wallet (if you signed in with X) can be [exported](/features/export-wallet) — keep your private key safe

@@ -10,14 +10,19 @@ Send via Claim lets you send USDC by generating a link and a passphrase. Share t
 1. Enter the amount on the home screen
 2. Tap **Send**
 3. Instead of entering a recipient, tap **Generate a claim link**
-4. Optionally add a message (up to 50 characters)
-5. Review the fee breakdown
-6. Tap **Proceed** and approve the transaction
-7. Copy the **claim link** and **passphrase**
+4. (Optional) Pick a privacy protocol — Send via Claim supports **Auto**, **MagicBlock**, or **Privacy Cash**
+5. Optionally add a message (up to 50 characters)
+6. Review the fee breakdown
+7. Tap **Proceed** and approve the transaction
+8. Copy the **claim link** and **passphrase**
 
 <Warning>
   The passphrase is required to claim the funds. It is generated with the claim and never stored anywhere.
 </Warning>
+
+<Note>
+  Send via Claim doesn't currently support Umbra — only MagicBlock and Privacy Cash. Umbra requires recipient registration, which doesn't fit the open-claim model.
+</Note>
 
 ## Sharing the link
 
@@ -32,7 +37,7 @@ When you tap **Copy Claim Link**, both the link and passphrase are copied togeth
 1. Open the claim link
 2. Sign into Swish (if not already)
 3. Enter the **passphrase**
-4. Tap **Proceed**
+4. Tap **Claim**
 5. Funds are transferred to their wallet
 
 ## Reclaiming funds
@@ -47,13 +52,9 @@ Once claimed by someone else, reclaim is no longer available.
 
 ## Fee breakdown
 
-Fees are charged by the [Privacy Cash](https://privacycash.org) protocol, not by Swish:
+Fees vary by protocol — Swish itself charges nothing. The send modal shows the exact fee for the chosen route before you confirm.
 
-> **0.006 SOL (in USDC) + 0.35% of the amount**
-
-The **"They Receive"** line shows what the recipient gets after fees.
-
-See [Fees](/fees) for more details.
+See [Fees](/fees) for the full table.
 
 ## When to use Send via Claim
 

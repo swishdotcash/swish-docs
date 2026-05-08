@@ -1,32 +1,32 @@
 ---
 title: "Fees"
-description: "How Swish fees work — transparent, dynamic, and minimal."
+description: "Swish itself charges nothing. Each privacy protocol has its own fee."
 ---
 
-Private transactions (Send, Request, and Send via Claim) include a small fee charged by the [Privacy Cash](https://privacycash.org) protocol — not by Swish. Withdrawals are free.
+**Swish itself charges nothing.** What you pay is the fee charged by whichever privacy protocol routes your transaction. Withdrawals are gas-sponsored by Swish — completely free.
 
-## Fee breakdown
+## Per-protocol fees
 
-Every private transaction is charged by the [Privacy Cash](https://privacycash.org) protocol:
+| Protocol | Fee |
+|----------|-----|
+| **Privacy Cash** | ~$0.71 + 0.35% of the amount |
+| **MagicBlock** | Gas only (~free) |
+| **Umbra** | 0.7% of the amount (charged on claim) |
 
-> **0.006 SOL (in USDC) + 0.35% of the amount**
+The base Privacy Cash fee is **0.006 SOL** converted to USDC at the live SOL/USD price (via the [Pyth Network](https://pyth.network)).
 
-- **0.006 SOL** — converted to USDC using the live SOL/USD price from the **Pyth Network**
-- **0.35%** — a percentage of the transaction amount for private routing
+## Auto route
 
-**Example:** Sending **$100 USDC** (assuming SOL at ~$120):
+When you use the default **Auto** picker, Swish picks the cheapest viable protocol. Typically:
 
-| | |
-|---|---|
-| Base fee (0.006 SOL) | ~$0.72 USDC |
-| Routing fee (0.35%) | $0.35 USDC |
-| **Total Fee** | **~$1.07 USDC** |
-| **They Receive** | **~$98.93 USDC** |
+- **MagicBlock** — for sends to recipients who aren't on Umbra (gas only)
+- **Umbra** — when both sender and recipient are Umbra-registered (0.7%)
+- **Privacy Cash** — final fallback if neither is available
+
+## Where fees are shown
+
+Every transaction modal shows a complete fee breakdown before you confirm — including the exact amount the recipient receives after fees and which protocol the transaction is routed through. You always know what you're paying before you approve.
 
 ## Withdrawals
 
 Withdrawals are **free**. Swish sponsors the gas fee for all withdrawals. Note that withdrawals are not private — they're standard USDC transfers on Solana.
-
-## Where fees are shown
-
-Every transaction modal shows a complete fee breakdown before you confirm, including the exact amount the recipient will receive after fees. You always know what you're paying before you approve.

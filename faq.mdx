@@ -7,7 +7,7 @@ description: "Frequently asked questions about Swish."
 
 <AccordionGroup>
   <Accordion title="What is Swish?">
-    Swish is a privacy-focused payments app on Solana. It lets you send and receive USDC without exposing your wallet address on the blockchain.
+    Swish is a privacy-focused payments app on Solana. It lets you send and receive USDC privately by routing transactions through the leading privacy protocols on Solana — Privacy Cash, MagicBlock, and Umbra.
   </Accordion>
 
   <Accordion title="What blockchain does Swish use?">
@@ -19,7 +19,11 @@ description: "Frequently asked questions about Swish."
   </Accordion>
 
   <Accordion title="Is Swish free to use?">
-    Private transactions (Send, Request, Send via Claim) include a small fee charged by the Privacy Cash protocol — not by Swish. Withdrawals are free with gas fees sponsored by Swish. See [Fees](/fees) for details.
+    Swish itself charges no fee. What you pay is the fee charged by whichever privacy protocol routes your transaction (see [Fees](/fees)). Withdrawals are gas-sponsored by Swish — completely free.
+  </Accordion>
+
+  <Accordion title="Which privacy protocol does Swish use?">
+    Swish doesn't have one — it aggregates across three: **Privacy Cash**, **MagicBlock**, and **Umbra**. By default, Swish picks the cheapest viable route for each transaction. You can override this from the picker on any send. See [Privacy Protocols](/privacy-protocols).
   </Accordion>
 </AccordionGroup>
 
@@ -39,7 +43,7 @@ description: "Frequently asked questions about Swish."
   </Accordion>
 
   <Accordion title="Why do I need to sign a message after connecting?">
-    The session signature is used to derive encryption keys for your private transactions. It's not a transaction and costs nothing. It's required once per session.
+    The session signature is used to derive encryption keys for your private transactions. It's not a transaction and costs nothing.
   </Accordion>
 
   <Accordion title="Can I export my wallet?">
@@ -51,7 +55,7 @@ description: "Frequently asked questions about Swish."
 
 <AccordionGroup>
   <Accordion title="Is sending really private?">
-    Yes. When you use Send, Request, or Send via Claim, your wallet address is never exposed on the blockchain. The transaction is routed through Privacy Cash protocol that breaks the on-chain link between sender and receiver.
+    Yes. When you use Send, Request, or Send via Claim, Swish routes the transaction through one of three privacy protocols (Privacy Cash, MagicBlock, or Umbra), which break the on-chain link between sender and receiver. See [Privacy](/privacy).
   </Accordion>
 
   <Accordion title="Can I send to someone who doesn't have Swish?">
@@ -68,6 +72,10 @@ description: "Frequently asked questions about Swish."
 
   <Accordion title="Can I reclaim funds from a Send via Claim link?">
     Yes, as long as the funds haven't been claimed yet. Open the claim link and tap **Reclaim** to return the funds to your wallet.
+  </Accordion>
+
+  <Accordion title="What's Umbra and should I enable it?">
+    Umbra is one of the three privacy protocols Swish routes through, but it requires both sender and recipient to be registered. Enabling Umbra in your profile (~$0.60 one-time setup) lets others send you funds via Umbra's ZK shielded pool — the strongest privacy option. It's optional. See [Privacy Protocols](/privacy-protocols).
   </Accordion>
 
   <Accordion title="Are withdrawals private?">

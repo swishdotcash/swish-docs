@@ -1,15 +1,15 @@
 ---
 title: "What is Swish?"
-description: "Venmo, but private"
+description: "Privacy, made simple"
 ---
 
 Send, Request, Claim. Privately.
 
-## Private payments, made simple
+## The consumer layer for privacy on Solana
 
-Swish is a privacy-focused payments app built on Solana. It lets you send and receive USDC without revealing your wallet address on-chain — like Venmo or Cash App, but private and on-chain.
+Swish is a privacy-focused payments app built on Solana. It lets you send and receive USDC privately — without exposing your wallet address on-chain.
 
-Whether you're paying a friend, requesting money, or sharing a claimable link, Swish keeps your financial activity between you and the people you transact with.
+Behind the scenes, Swish aggregates across the leading privacy protocols on Solana — [Privacy Cash](https://privacycash.org), [MagicBlock](https://www.magicblock.xyz), and [Umbra](https://umbraprivacy.com) — and picks the best route for each transaction automatically. You don't need to pick a protocol or learn the mechanics. It just works.
 
 <CardGroup cols={2}>
   <Card title="Get started" icon="play" href="/getting-started">
@@ -30,7 +30,7 @@ Whether you're paying a friend, requesting money, or sharing a claimable link, S
 
 On Solana, every transaction is fully public. When you send someone money, both wallet addresses and the amount are visible to anyone. Swish changes that.
 
-- **Your address stays hidden** — Swish routes transactions through [Privacy Cash](https://privacycash.org) so your wallet address is never exposed on-chain.
+- **Multi-protocol routing** — Swish routes every send through the best privacy protocol for that transaction, automatically.
 - **No address sharing needed** — Send money via X handles or claimable links instead of asking for wallet addresses.
 - **Built on Solana** — Fast, low-cost transactions.
 - **USDC only** — Stable, dollar-pegged payments. No price volatility.
@@ -39,7 +39,7 @@ On Solana, every transaction is fully public. When you send someone money, both 
 
 1. **Sign in** with your Solana wallet (or Seeker's built-in wallet) or X (Twitter) account
 2. **Enter an amount** on the home screen
-3. **Choose an action** — Send, Request, or Claim
-4. **Done** — your transaction is processed privately on Solana
+3. **Choose an action** — Send, Request, or use Send via Claim
+4. **Done** — Swish picks the right privacy protocol and routes the transaction
 
-Every transaction is routed through Swish's privacy protocol, which ensures your wallet address is never linked to the payment on-chain.
+Want to know how the routing works? See [Privacy Protocols](/privacy-protocols).

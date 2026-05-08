@@ -3,7 +3,7 @@ title: "Send"
 description: "Send USDC privately to any wallet address or X handle."
 ---
 
-Send USDC to anyone on Solana without revealing your wallet address. The recipient sees the funds in their wallet, but your address is never exposed on-chain.
+Send USDC to anyone on Solana without revealing your wallet address. Swish routes the transaction through the best privacy protocol automatically.
 
 ## How to send
 
@@ -12,8 +12,9 @@ Send USDC to anyone on Solana without revealing your wallet address. The recipie
 3. Choose the recipient type:
    - **Wallet** — paste or scan a Solana wallet address
    - **X Profile** — enter an X (Twitter) handle (the recipient must have a Swish account)
-4. Review the fee breakdown and the amount the recipient will receive
-5. Tap **Proceed** and approve the transaction in your wallet
+4. (Optional) Pick a specific privacy protocol — by default, Swish uses **Auto** and picks the best route
+5. Review the fee breakdown and the amount the recipient will receive
+6. Tap **Proceed** and approve the transaction in your wallet
 
 ## Sending to a wallet address
 
@@ -23,22 +24,31 @@ Enter a valid Solana wallet address. You can also tap the **QR scanner** icon to
 
 Enter the recipient's X handle (without the @ symbol). Swish will look up their account and resolve it to their wallet address.
 
+## Privacy protocol picker
+
+Below the recipient input, you'll see a picker with options:
+
+- **Auto** (default) — Swish picks the best route automatically
+- **Umbra** — strongest privacy; requires both sender and recipient to be Umbra-registered
+- **MagicBlock** — TEE-based privacy; gas-only fees
+- **Privacy Cash** — ZK UTXO mixer; works for any recipient
+
+Disabled options are dimmed (e.g., Umbra dims if the recipient isn't registered on it).
+
+See [Privacy Protocols](/privacy-protocols) for the full breakdown.
 
 ## Fee breakdown
 
-Fees are charged by the [Privacy Cash](https://privacycash.org) protocol, not by Swish. Every send shows a clear breakdown before you confirm:
+Fees vary by protocol — Swish itself charges nothing. The send modal shows the exact fee for the chosen route before you confirm. The **"They Receive"** line shows the exact amount the recipient will get after fees.
 
-> **0.006 SOL (in USDC) + 0.35% of the amount**
-
-The **"They Receive"** line shows the exact amount the recipient will get after fees.
-
-See [Fees](/fees) for more details.
+See [Fees](/fees) for the full table.
 
 ## After sending
 
 Once the transaction is confirmed, you'll see:
 - The amount sent
 - Who it was sent to (address or X handle)
+- The protocol used to route it
 - Fee breakdown
 - What they receive
 
