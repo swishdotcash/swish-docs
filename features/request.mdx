@@ -8,7 +8,7 @@ Request USDC from anyone by generating a shareable link. The payer clicks the li
 ## How to request
 
 1. Enter the amount you want to receive on the home screen
-2. Tap **Receive**
+2. Tap **Request**
 3. Optionally add a message (up to 50 characters) — e.g., "Dinner last night"
 4. Review the fee breakdown and the amount you'll receive
 5. Tap **Proceed**
@@ -20,8 +20,9 @@ When someone opens your request link:
 
 - The amount you requested
 - Your optional message
-- The fee breakdown
-- A button to pay the request
+- A picker to choose the privacy protocol (default: Auto)
+- The fee breakdown for the chosen protocol
+- A button to fulfill the request
 
 They'll need to sign into Swish (if they aren't already) and approve the transaction. Your wallet address stays hidden throughout the process.
 
@@ -37,10 +38,6 @@ To cancel an open request, click on it from the Activity tab.
 
 ## Fee breakdown
 
-The same fees apply as with sending — charged by the [Privacy Cash](https://privacycash.org) protocol, not by Swish:
+Fees vary by protocol — the payer (not the requester) covers them. The exact fee shown to the payer depends on which protocol they pick. The **"You Receive"** line on your end shows the amount you'll get after the payer's fee.
 
-> **0.006 SOL (in USDC) + 0.35% of the amount**
-
-The **"You Receive"** line shows the exact amount you'll get after fees. The payer covers the fees.
-
-See [Fees](/fees) for more details.
+See [Fees](/fees) and [Privacy Protocols](/privacy-protocols) for details.
