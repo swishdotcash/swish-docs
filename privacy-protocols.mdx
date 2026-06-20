@@ -18,14 +18,14 @@ A ZK UTXO mixer. Funds are deposited into a pool, and recipients withdraw with a
 
 A TEE-based privacy protocol (Intel TDX) that processes transactions confidentially in a secure enclave. Recipients land in their mainnet token account directly, no unlock step needed.
 
-- **Fee:** Gas only (~free)
+- **Fee:** 0.1% of the amount
 - **Best for:** Most sends, when the recipient hasn't enabled Umbra. Cheapest option.
 
 ### Umbra
 
 A ZK shielded pool secured by Arcium MPC. Funds enter the shielded pool and are claimed by registered recipients. Both sender and recipient must be registered on Umbra.
 
-- **Fee:** 0.7% of the amount (charged on claim)
+- **Fee:** ~0.35% on send + ~0.35% on unshield (paid when the recipient unlocks)
 - **Best for:** Sends between two Umbra-registered users.
 
 You can enable Umbra in your profile under the **Umbra** section — it's a one-time, ~$0.60 setup.

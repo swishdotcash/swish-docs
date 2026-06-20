@@ -42,6 +42,17 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Developers",
+        "groups": [
+          {
+            "group": "Build with Swish",
+            "pages": [
+              "developers/plug"
+            ]
+          }
+        ]
       }
     ],
     "global": {

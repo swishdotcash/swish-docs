@@ -10,17 +10,21 @@ description: "Swish itself charges nothing. Each privacy protocol has its own fe
 | Protocol | Fee |
 |----------|-----|
 | **Privacy Cash** | ~$0.71 + 0.35% of the amount |
-| **MagicBlock** | Gas only (~free) |
-| **Umbra** | 0.7% of the amount (charged on claim) |
+| **MagicBlock** | 0.1% of the amount |
+| **Umbra** | ~0.35% on send + ~0.35% on unshield (paid when the recipient unlocks) |
 
 The base Privacy Cash fee is **0.006 SOL** converted to USDC at the live SOL/USD price (via the [Pyth Network](https://pyth.network)).
+
+<Note>
+  Umbra charges in two legs — ~0.35% when you send and ~0.35% when the recipient unshields. A **Send & Claim** routed through Umbra bundles both legs (~0.7%) at claim time.
+</Note>
 
 ## Auto route
 
 When you use the default **Auto** picker, Swish picks the cheapest viable protocol. Typically:
 
-- **MagicBlock** — for sends to recipients who aren't on Umbra (gas only)
-- **Umbra** — when both sender and recipient are Umbra-registered (0.7%)
+- **MagicBlock** — for sends to recipients who aren't on Umbra (0.1%)
+- **Umbra** — when both sender and recipient are Umbra-registered (~0.35% per leg)
 - **Privacy Cash** — final fallback if neither is available
 
 ## Where fees are shown

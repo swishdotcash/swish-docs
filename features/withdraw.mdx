@@ -20,6 +20,11 @@ Withdraw lets you move USDC from your Swish wallet to any Solana wallet address.
 |-----|---------|
 | **Network Fee** | Sponsored by Swish — you pay nothing |
 
+## Limits
+
+- **Minimum withdrawal:** $0.10
+- **Destination must already hold USDC** — the address needs an existing USDC token account. Withdrawing to a brand-new address that has never held USDC will fail. Send to a wallet that already holds USDC.
+
 <Note>
   Withdrawals are **not private**. The transfer is a standard USDC transfer on Solana, so both your wallet address and the destination are visible on-chain. Use this for moving funds to your own wallets.
 </Note>

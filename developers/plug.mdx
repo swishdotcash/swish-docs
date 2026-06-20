@@ -1,0 +1,102 @@
+---
+title: "The Plug"
+description: "Drop a private USDC payment button into any app."
+---
+
+**The Plug** is a drop-in widget that lets your users pay you privately in USDC — without you building any wallet, routing, or privacy logic. Add a button, get paid privately.
+
+- **Non-custodial** — Swish never holds funds. The payer pays from their own wallet.
+- **No fees from Swish** — the payer covers only the underlying privacy-protocol fee (see [Fees](/fees)).
+- **No web3 to bundle** — the package ships no Solana or wallet dependencies.
+
+## Install
+
+Use the React component, or drop in the vanilla script — no build step needed.
+
+<CodeGroup>
+
+```bash React (npm)
+npm i @swishdotcash/plug
+```
+
+```html Script tag
+<script src="https://plug.swish.cash/plug.js"></script>
+```
+
+</CodeGroup>
+
+## Quickstart
+
+<CodeGroup>
+
+```jsx React
+import { Plug } from "@swishdotcash/plug";
+
+<Plug
+  recipient="RECIPIENT_SOLANA_ADDRESS"
+  amount={25}
+  reference="order_1234"
+  onSuccess={(sig, ref) => markOrderPaid(ref)}
+/>
+```
+
+```html Script tag
+<script src="https://plug.swish.cash/plug.js"></script>
+
+<button onclick="Plug.open({
+    recipient: 'RECIPIENT_SOLANA_ADDRESS',
+    amount: 25,
+    reference: 'order_1234',
+    onSuccess: function (sig, ref) { markOrderPaid(ref); },
+})">
+  Deposit Privately
+</button>
+```
+
+</CodeGroup>
+
+Both render a button that opens the Swish widget in a modal, where the payer connects a wallet and pays. When the payment confirms, `onSuccess` fires with the transaction signature and your `reference`.
+
+<Tip>
+  The React `<Plug />` ships its own branded button. With the script tag, call `Plug.open(opts)` from any button's click handler (as above), or use `Plug.mount("#selector", opts)` to inject the branded button into an element.
+</Tip>
+
+## Options
+
+Every option is **optional** — open the Plug with none of them and the payer enters the recipient and amount themselves. In practice you'll usually set `recipient` (so funds come to you), and most integrations also set `amount`, `reference`, and `onSuccess`.
+
+| Option | Type | Required | Description |
+|--------|------|----------|-------------|
+| `recipient` | `string` | Optional | Destination Solana address. Omit to let the payer enter it. (v1 takes a raw address only.) |
+| `amount` | `number` | Optional | Amount in USDC. If set, the amount field is locked; omit to let the payer type it. |
+| `token` | `"USDC"` | Optional | Token to pay in. v1 supports USDC only. |
+| `reference` | `string` | Optional | Your order/correlation id. Never read or stored — echoed back untouched in `onSuccess` so you can match the payment to your order. |
+| `label` | `string` | Optional | Override the button text. Defaults to "Deposit Privately". |
+| `compact` | `boolean` | Optional | Force the compact "Deposit" label. Auto-shrinks when the button is cramped. |
+| `onSuccess` | `(txSignature, reference?) => void` | Optional | Fires when a payment confirms. |
+| `onError` | `(message) => void` | Optional | Fires when a payment fails (the widget stays open for retry). |
+| `onClose` | `() => void` | Optional | Fires when the payer dismisses the widget. |
+
+React-only extras: `children` (a custom trigger element that replaces the default button), plus `className` and `style` for the wrapper.
+
+## Custom trigger (React)
+
+Pass `children` to use your own button instead of the default:
+
+```jsx
+<Plug recipient="RECIPIENT_SOLANA_ADDRESS" amount={25} onSuccess={(sig, ref) => markOrderPaid(ref)}>
+  <button className="my-button">Pay $25 privately</button>
+</Plug>
+```
+
+## How routing works
+
+The Plug routes each payment through the best available privacy protocol automatically (**Auto**), choosing between **MagicBlock** and **Privacy Cash**. The payer doesn't pick a protocol. See [Privacy Protocols](/privacy-protocols) for how each works.
+
+<Note>
+  v1 of the Plug is **Pay-only**, **USDC-only**, and routes across **MagicBlock and Privacy Cash**. Umbra is not included in v1.
+</Note>
+
+## What the payer needs
+
+The payer brings their own funds — both **USDC** (the amount) and a small amount of **SOL** for gas. They connect a wallet inside the widget; nothing is required of them ahead of time.
